@@ -1,12 +1,18 @@
 
-.Root {
+.root {
+    --lightness: 95%;
     max-width: 300px;
     max-height: 400px;
-    background-color: rgba(235, 242, 253, 0.63);
+    background-color: hsl(202, 100%, var(--lightness));
     margin: 7px;
+    transition: background-color 0.3s ease;
 }
 
-.Title {
+.root:hover {
+    --lightness: 90%;
+}
+
+.title {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,18 +23,18 @@
     min-height: 60px;
 }
 
-.Poster {
+.poster {
     height: 0;
     padding-top: 56.25%;
 }
 
-.Description {
+.description {
     min-height: 140px;
     display: flex;
     align-items: center;
 }
 
-.Rating {
+.rating {
     display: flex;
     justify-content: center;
     align-items: center;

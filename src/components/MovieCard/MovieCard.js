@@ -3,29 +3,28 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import {Box} from "@material-ui/core";
 import {Rating} from "@material-ui/lab";
-import style from './MovieCard.module.css';
+import classes from './MovieCard.module.css';
+import {Box} from "@material-ui/core";
 
 const MovieCard = props => {
     return (
-        <Card className={style.Root}>
-            <p
-                className={style.Title}>
-                {props.title}
-            </p>
+        <Card className={classes.root}>
+            <Typography className={classes.title} variant="h5">
+                {props.Title}
+            </Typography>
             <CardMedia
-                className={style.Poster}
-                image={props.img}
+                className={classes.poster}
+                image={props.Poster}
                 title="poster"
             />
-            <CardContent className={style.Description}>
+            <CardContent className={classes.description}>
                 <Typography variant="body2" color="textSecondary" component="p">
-                    {props.description}
+                    {props.Plot}
                 </Typography>
             </CardContent>
-            <Box className={style.Rating} component="fieldset" mb={3} borderColor="transparent">
-                <Rating disabled name="customized-10" defaultValue={props.ratings} precision={0.1} max={10}/>
+            <Box className={classes.rating} component="div" mb={3} borderColor="transparent">
+                <Rating disabled name="customized-10" value={Number(props.imdbRating)} precision={0.1} max={10}/>
             </Box>
         </Card>
     );
