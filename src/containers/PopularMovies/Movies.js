@@ -1,25 +1,17 @@
-import React, {useEffect} from "react";
-import classes from './PopularMovies.module.css';
-import MovieCard from "../components/MovieCard/MovieCard";
-import imdbApi from "../api/imdbApi";
+import React from "react";
+import classes from './Movies.module.css';
+import MovieCard from "../../components/MovieCard/MovieCard";
 import {Box, Grid} from "@material-ui/core";
-import MoreDetailsDialog from "../components/MovieMoreDetails/MoreDetailsDialog";
+import MoreDetailsDialog from "../../components/MovieMoreDetails/MoreDetailsDialog";
 
-const PopularMovies = () => {
-    const [movies, setMovies] = React.useState([]);
+const Movies = props => {
     const [moreDetailsDialog, setMoreDetailsDialog] = React.useState({
         isOpen: false,
         selectedMovie: null,
     });
 
-    useEffect(() => {
-        imdbApi.getPopularMovies().then(results => {
-            setMovies(results);
-        });
-    }, []);
-
     const onMovieCardClickAction = id => {
-        const selectedMovie = movies.find(movie => movie.imdbID === id);
+        const selectedMovie = props.movies.find(movie => movie.imdbID === id);
         setMoreDetailsDialog({...moreDetailsDialog, isOpen: true, selectedMovie: selectedMovie});
     };
 
@@ -27,7 +19,7 @@ const PopularMovies = () => {
         setMoreDetailsDialog({...moreDetailsDialog, isOpen: false, selectedMovie: null});
     };
 
-    const popularMovies = movies.map(movie => {
+    const popularMovies = props.movies.map(movie => {
         return <Grid key={movie.imdbID}
                      item
                      xs={12} sm={6} md={3} xl={3}
@@ -37,7 +29,7 @@ const PopularMovies = () => {
     });
 
     return (
-        <Box component="div" className={classes.PopularMovies}>
+        <Box component="div" className={classes.movies}>
             <Grid container
                   spacing={1}
                   direction="row"
@@ -52,4 +44,4 @@ const PopularMovies = () => {
     );
 };
 
-export default PopularMovies;
+export default Movies;

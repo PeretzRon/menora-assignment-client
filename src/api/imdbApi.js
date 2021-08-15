@@ -1,8 +1,7 @@
-
 const imdbApi = {
     getPopularMovies: async function () {
         try {
-            const url = 'http://10.0.0.25:3001/getInitData';
+            const url = 'http://localhost:3001/popularMovies';
             const options = prepareRequest(url, 'GET');
             const data = await fetch(url, options);
             return await data.json();
@@ -10,6 +9,12 @@ const imdbApi = {
             console.log(error);
             return [];
         }
+    },
+    getMoviesByText: async function (movieName) {
+        const url = `http://localhost:3001/searchMovie?search=${movieName}`;
+        const options = prepareRequest(url, 'GET');
+        const data = await fetch(url, options);
+        return await data.json();
     }
 };
 

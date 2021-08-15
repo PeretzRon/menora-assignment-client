@@ -1,0 +1,22 @@
+
+.searchBar {
+    display: flex;
+    justify-content: center;
+}
+
+.paper {
+    padding: 1px 14px;
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    margin: 7px;
+    border: 1px solid #ccc;
+}
+
+.buttonBack {
+    margin: 7px;
+}
+
+.input {
+    flex: 1;
+}
