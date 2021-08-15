@@ -29,6 +29,7 @@ const MoreDetailsDialog = props => {
         <MuiThemeProvider theme={theme}>
             <Dialog
                 open={props.dialogMoreDetails.isOpen}
+                hideBackdrop={false}
                 onClose={props.onClose}
             >
                 <DialogTitle className={classes.dialogTitle}>
