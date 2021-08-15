@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Button, IconButton, InputBase, Paper} from "@material-ui/core";
+import {Button, CircularProgress, IconButton, InputBase, Paper} from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
 import classes from './SearchBar.module.css';
 
@@ -29,6 +29,7 @@ const SearchBar = props => {
                     placeholder="Search..."
                     onChange={onTextChange}
                 />
+                {props.showLoading && <CircularProgress className={classes.progress}/>}
                 <IconButton onClick={(event) => props.onClickSearch(event, input)} type="submit" aria-label="search">
                     <SearchIcon/>
                 </IconButton>

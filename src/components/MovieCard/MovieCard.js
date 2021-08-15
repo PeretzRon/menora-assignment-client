@@ -8,6 +8,12 @@ import classes from './MovieCard.module.css';
 import {Box} from "@material-ui/core";
 
 const MovieCard = props => {
+    let poster = props.Poster;
+    // in case that poster not available, show default poster
+    if (poster === 'N/A') {
+        poster = 'https://thumbs.dreamstime.com/z/movie-film-festival-poster-template-design-modern-retro-vintage-style-can-be-used-background-backdrop-banner-brochure-125779526.jpg'
+    }
+
     return (
         <Card className={classes.root}>
             <Typography className={classes.title} variant="h5">
@@ -15,7 +21,7 @@ const MovieCard = props => {
             </Typography>
             <CardMedia
                 className={classes.poster}
-                image={props.Poster}
+                image={poster}
                 title="poster"
             />
             <CardContent className={classes.description}>

@@ -7,19 +7,25 @@ let popularMovies = [];
 const Body = () => {
 
     const [movies, setMovies] = useState([]);
-    const [showBack, setShowBack] = useState(false);
+    const [showAdditionalComponent, setShowAdditionalComponent] = useState({
+        showBackButton: false,
+        showLoading: false
+    });
     const handleSearch = (event, input) => {
         event.preventDefault();
+        setShowAdditionalComponent({...showAdditionalComponent, showLoading: true});
         if (input === '') return; // no input, do nothing
-        imdbApi.getMoviesByText(input).then(searchResultsMovies => {
-            setMovies(searchResultsMovies);
-            setShowBack(true);
+        imdbApi.getMoviesByText(input)
+            .then(searchResultsMovies => {
+                setMovies(searchResultsMovies);
+            }).finally(reason => {
+            setShowAdditionalComponent({...showAdditionalComponent, showBackButton: true, showLoading: false});
         });
     };
 
     const handleBack = () => {
         setMovies([...popularMovies]);
-        setShowBack(false);
+        setShowAdditionalComponent({...showAdditionalComponent, showBackButton: false});
     };
 
     useEffect(() => {
@@ -34,7 +40,8 @@ const Body = () => {
             <SearchBar
                 onClickSearch={handleSearch}
                 onBackAction={handleBack}
-                showBackButton={showBack}/>
+                showLoading={showAdditionalComponent.showLoading}
+                showBackButton={showAdditionalComponent.showBackButton}/>
             <Movies movies={movies}/>
         </>
     );
