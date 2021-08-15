@@ -23,8 +23,8 @@ const MovieCard = props => {
                     {props.Plot}
                 </Typography>
             </CardContent>
-            <Box className={classes.rating} component="div" mb={3} borderColor="transparent">
-                <Rating readOnly  name="customized-10" value={Number(props.imdbRating)} precision={0.1} max={10}/>
+            <Box className={classes.ratingBox} component="div" mb={3} borderColor="transparent">
+                <Rating className={classes.rating}  readOnly  name="customized-10" value={Number(props.imdbRating)} precision={0.1} max={10}/>
             </Box>
         </Card>
     );

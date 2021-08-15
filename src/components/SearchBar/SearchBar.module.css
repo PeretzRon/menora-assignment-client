@@ -2,6 +2,7 @@
 .searchBar {
     display: flex;
     justify-content: center;
+    margin: 2px 7px;
 }
 
 .paper {
@@ -15,6 +16,8 @@
 
 .buttonBack {
     margin: 7px;
+    border: 1px solid #ccc;
+    color: black;
 }
 
 .input {

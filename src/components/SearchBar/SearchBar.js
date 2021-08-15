@@ -26,7 +26,7 @@ const SearchBar = props => {
                 <InputBase
                     className={classes.input}
                     value={input}
-                    placeholder="Search your media..."
+                    placeholder="Search..."
                     onChange={onTextChange}
                 />
                 <IconButton onClick={(event) => props.onClickSearch(event, input)} type="submit" aria-label="search">

@@ -2,7 +2,7 @@
 .root {
     --lightness: 95%;
     max-width: 300px;
-    max-height: 400px;
+    min-height: 620px;
     background-color: hsl(202, 100%, var(--lightness));
     margin: 7px;
     transition: background-color 0.3s ease;
@@ -25,17 +25,34 @@
 
 .poster {
     height: 0;
-    padding-top: 56.25%;
+    padding-top: 120%;
 }
 
 .description {
     min-height: 140px;
+    max-height: 140px;
     display: flex;
     align-items: center;
 }
 
-.rating {
+.ratingBox {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 2rem;
+    margin-top: 15px ;
+}
+
+.rating {
+    font-size: 1.3rem;
+}
+
+@media (min-width: 960px) {
+    .rating {
+        font-size: 80%;
+    }
+}
+
+@media  {
+
 }

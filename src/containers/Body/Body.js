@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import Movies from "../PopularMovies/Movies";
+import Movies from "../Movies/Movies";
 import imdbApi from "../../api/imdbApi";
 
 let popularMovies = [];
@@ -24,7 +24,6 @@ const Body = () => {
 
     useEffect(() => {
         imdbApi.getPopularMovies().then(results => {
-            console.log(results);
             setMovies(results);
             popularMovies = results;
         });

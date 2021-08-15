@@ -1,7 +1,7 @@
 import React from "react";
 import classes from './Movies.module.css';
 import MovieCard from "../../components/MovieCard/MovieCard";
-import {Box, Grid} from "@material-ui/core";
+import {Grid} from "@material-ui/core";
 import MoreDetailsDialog from "../../components/MovieMoreDetails/MoreDetailsDialog";
 
 const Movies = props => {
@@ -22,25 +22,26 @@ const Movies = props => {
     const popularMovies = props.movies.map(movie => {
         return <Grid key={movie.imdbID}
                      item
-                     xs={12} sm={6} md={3} xl={3}
+                     xs={12} sm={6} md={4} lg
                      onClick={() => onMovieCardClickAction(movie.imdbID)}>
             <MovieCard {...movie}/>
         </Grid>;
     });
 
     return (
-        <Box component="div" className={classes.movies}>
+        <div className={classes.movies}>
             <Grid container
-                  spacing={1}
+                  spacing={3}
                   direction="row"
                   justifyContent="center"
-                  alignItems="center">
+                  alignItems="stretch"
+            >
                 {popularMovies}
+                {moreDetailsDialog.isOpen && <MoreDetailsDialog
+                    onClose={onDialogClose}
+                    dialogMoreDetails={moreDetailsDialog}/>}
             </Grid>
-            {moreDetailsDialog.isOpen && <MoreDetailsDialog
-                onClose={onDialogClose}
-                dialogMoreDetails={moreDetailsDialog}/>}
-        </Box>
+        </div>
     );
 };
 
