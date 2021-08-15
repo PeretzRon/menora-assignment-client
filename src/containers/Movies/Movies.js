@@ -30,6 +30,7 @@ const Movies = props => {
 
     return (
         <div className={classes.movies}>
+            {props.message.length > 0 && <h1>{props.message}</h1>}
             <Grid container
                   spacing={3}
                   direction="row"

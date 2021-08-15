@@ -5,3 +5,8 @@ export const moviePopupTexts = {
     imdbVotes: 'Voter turnout',
     Actors: 'Main actors'
 };
+
+export const serverMessages =  {
+    serverError: 'Server Error',
+    moviesNotFounds: 'Oops - no results was found'
+}
